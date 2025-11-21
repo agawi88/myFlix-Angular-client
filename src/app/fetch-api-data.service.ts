@@ -36,6 +36,3 @@ export class UserRegistrationService {
       'Something bad happened; please try again later.');
   }
 }
-export class FetchApiData {
-  
-}
