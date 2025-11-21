@@ -15,8 +15,7 @@ export class UserRegistrationService {
   //Inject the HttpClient module to the constructor to initialize it
   // This will provide HttpClient to the entire class, making it available via this.http
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
    // Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
@@ -24,6 +23,33 @@ export class UserRegistrationService {
       catchError(this.handleError)
     );
   }
+// Api call for user login endpoint
+  public userLogin(userDetails: any): Observable<any> {
+    console.log(userDetails);
+    return this.http.post(apiUrl + 'login', userDetails).pipe(
+      catchError(this.handleError)
+    );
+  }
+// API call for getting all movies
+  public getAllMovies(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(apiUrl + 'movies', {headers: new HttpHeaders(
+      {
+        Authorization: 'Bearer ' + token,
+      })}).pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+// Non-typed response extraction
+  private extractResponseData(res: any): any { 
+    const body = res;
+    return body || { };
+  }
+
+// API call for getting a single movie
+
+  // Error handling
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred:', error.error.message);
