@@ -11,7 +11,7 @@ const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
   providedIn: 'root',
 })
 
-export class UserRegistrationService {
+export class FetchApiDataService {
   //Inject the HttpClient module to the constructor to initialize it
   // This will provide HttpClient to the entire class, making it available via this.http
 
