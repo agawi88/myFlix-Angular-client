@@ -3,7 +3,7 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing-module';
-import { App } from './app';
+import { AppComponent } from './app.component';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,10 +13,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 
 @NgModule({
   declarations: [
-    App
+    AppComponent,
+    UserRegistrationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatDialogModule,
     MatSnackBarModule,
-    FormsModule
   ],
   providers: [],
-  bootstrap: [App]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
