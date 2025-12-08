@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { catchError, map} from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 //import { map } from 'rxjs/operators';
 
 
-//Declaring the api url that will provide data for the client app
-//const apiUrl = import.meta.env.VITE_API_URL;
-const apiUrl = (import.meta as any).env.VITE_API_URL;
+// Declaring the api url that will provide data for the client app
+// Use the Angular environment files when running with the Angular CLI (ng serve / ng build)
+import { environment } from '../environments/environment';
+const apiUrl = environment.apiUrl;
 @Injectable({
   providedIn: 'root',
 })
