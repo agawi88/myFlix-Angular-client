@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 
 // Declaring the api url that will provide data for the client app
 // Use the Angular environment files when running with the Angular CLI (ng serve / ng build)
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 const apiUrl = environment.apiUrl;
 @Injectable({
   providedIn: 'root',
