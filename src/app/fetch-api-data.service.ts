@@ -6,7 +6,8 @@ import { Observable, throwError } from 'rxjs';
 
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
+//const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = (import.meta as any).env.VITE_API_URL;
 @Injectable({
   providedIn: 'root',
 })
