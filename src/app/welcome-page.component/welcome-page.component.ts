@@ -2,15 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { UserLoginFormComponent } from '../user-login-form/user-login-form.component';
 import { UserRegistrationFormComponent } from '../user-registration-form/user-registration-form.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome-page.component',
   standalone: false,
   templateUrl: './welcome-page.component.html',
   styleUrl: './welcome-page.component.scss',
+  /*     imports: [
+    CommonModule,
+    MatDialogModule,
+    MatButtonModule
+  ], */
 })
 export class WelcomePageComponent implements OnInit {
-  constructor(public dialog: MatDialog) { }
+
+  constructor(
+    public dialog: MatDialog,
+    private router: Router
+  ) { }
+
   ngOnInit(): void {
   }
   openUserRegistrationDialog(): void {
@@ -18,9 +29,17 @@ export class WelcomePageComponent implements OnInit {
       width: '280px'
     });
   }
-openUserLoginDialog(): void {
+  openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
       width: '280px'
     });
   }
+  openMoviesDialog(): void {
+    this.router.navigate(['movies']);
+  }
+
+  openUserProfileDialog(): void {
+    this.router.navigate(['profile']);
+  }
+
 }
