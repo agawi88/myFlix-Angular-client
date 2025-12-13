@@ -21,14 +21,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { UserProfileComponent } from './user-profile.component/user-profile.component';
 import { FavoriteMoviesComponent } from './favorite-movies.component/favorite-movies.component';
+import { DirectorViewComponent } from './director-view.component/director-view.component';
+import { GenreViewComponent } from './genre-view.component/genre-view.component';
 
 ///
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
-/*   { path: 'profile', component: UserProfileComponent },
-  { path: 'favorites', component: FavoriteMoviesComponent },
-  { path: 'movies', component: MovieCardComponent }, */
+  { path: 'profile', component: UserProfileComponent },
+ /* { path: 'favorites', component: FavoriteMoviesComponent },
+ */
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -42,6 +44,8 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     UserProfileComponent,
     FavoriteMoviesComponent,
+    DirectorViewComponent,
+    GenreViewComponent,
   ],
   imports: [
     BrowserModule,
