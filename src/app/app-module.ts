@@ -1,4 +1,5 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { CommonModule, NgIf } from '@angular/common';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -23,6 +24,9 @@ import { UserProfileComponent } from './user-profile.component/user-profile.comp
 import { FavoriteMoviesComponent } from './favorite-movies.component/favorite-movies.component';
 import { DirectorViewComponent } from './director-view.component/director-view.component';
 import { GenreViewComponent } from './genre-view.component/genre-view.component';
+import { NavigationToolbarComponent } from './navigation-toolbar.component/navigation-toolbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 ///
 const appRoutes: Routes = [
@@ -46,8 +50,11 @@ const appRoutes: Routes = [
     FavoriteMoviesComponent,
     DirectorViewComponent,
     GenreViewComponent,
+    NavigationToolbarComponent,
   ],
   imports: [
+    CommonModule,
+    NgIf,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -60,6 +67,7 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatIconModule,
     MatSnackBarModule,
+    MatToolbarModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [],
