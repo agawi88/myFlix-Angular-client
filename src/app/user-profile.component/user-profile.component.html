@@ -4,18 +4,18 @@
 <div style="display: flex;">
     <mat-card style="flex: 1 1 auto;">
         <mat-card-header>
-        <mat-card-title>{ My Profile }</mat-card-title>
+        <mat-card-title> My Profile </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p><strong>Username:</strong> {{ user.Username }}</p>
-            <p><strong>Email:</strong> {{ user.Email }}</p>
-            <p><strong>Birthday:</strong> {{ user.Birthday | date }}</p>
+            <p><strong>Username:</strong> {{ users.Username }}</p>
+            <p><strong>Email:</strong> {{ users.Email }}</p>
+            <p><strong>Birthday:</strong> {{ users.Birthday | date }}</p>
             <p><strong>Favorite Movies:</strong></p>
-            <ul>
+<!--             <ul>
                 <li *ngFor="let movie of favoriteMovies">{{ movie.Title }}</li>
-            </ul>
+            </ul> -->
         </mat-card-content>
-    </mat-card>
+
 <!--     <mat-card-actions>
         <button mat-button color="primary" (click)="openEditUserDialog()">
             Edit Profile
@@ -28,4 +28,6 @@
         <button mat-button color="accent" (click)="closeDialog()">
             Close
         </button>
+    </mat-card-footer>
+    </mat-card>
 </div>
