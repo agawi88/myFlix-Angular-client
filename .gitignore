@@ -42,4 +42,15 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
-
+# Environment files
+.env
+.env.local
+.env.*.local
+# Environment files
+.env
+.env.local
+.env.*.local
+src/environments/environment.ts
+src/environments/environment.prod.ts
+# Local per-developer overrides (kept untracked)
+src/environments/environment.local.ts
