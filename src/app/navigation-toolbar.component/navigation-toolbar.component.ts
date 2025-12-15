@@ -13,6 +13,7 @@ import { UserProfileComponent } from '../user-profile.component/user-profile.com
   templateUrl: './navigation-toolbar.component.html',
   styleUrl: './navigation-toolbar.component.scss',
 })
+
 export class NavigationToolbarComponent implements OnInit {
 
     constructor(
