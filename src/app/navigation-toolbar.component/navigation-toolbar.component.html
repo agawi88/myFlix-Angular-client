@@ -3,11 +3,15 @@
 
   <span class="spacer"></span>
 
-  <button mat-button *ngIf="isLoggedIn()" routerLink="/profile">
-    Profile
+      <button
+    mat-raised-button
+    style="margin-left: 10px;"
+    color="primary"
+    (click)="openUserProfileDialog()"  >
+    My Profile
   </button>
 
-  <button mat-button *ngIf="isLoggedIn()" (click)="logout()">
+  <button mat-button (click)="logout()">
     Logout
   </button>
 </mat-toolbar>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-genre-view.component',
+  selector: 'app-genre-view',
   standalone: false,
   templateUrl: './genre-view.component.html',
   styleUrl: './genre-view.component.scss',

@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-movie-card.component',
   standalone: false,

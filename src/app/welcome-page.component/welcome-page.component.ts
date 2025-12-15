@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-welcome-page.component',
+  selector: 'app-welcome-page',
   standalone: false,
   templateUrl: './welcome-page.component.html',
   styleUrl: './welcome-page.component.scss',
@@ -36,10 +36,6 @@ export class WelcomePageComponent implements OnInit {
   }
   openMoviesDialog(): void {
     this.router.navigate(['movies']);
-  }
-
-  openUserProfileDialog(): void {
-    this.router.navigate(['profile']);
   }
 
 }

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-user-profile.component',
+  selector: 'app-user-profile',
   standalone: false,
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss',

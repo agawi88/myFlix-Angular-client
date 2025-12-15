@@ -3,11 +3,9 @@ import { CommonModule, NgIf } from '@angular/common';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog'; 
+import { MatDialog, MatDialogRef } from '@angular/material/dialog'; 
 import { OnInit } from '@angular/core';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-
+import { UserProfileComponent } from '../user-profile.component/user-profile.component';
 
 @Component({
   selector: 'app-navigation-toolbar',
@@ -15,23 +13,30 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './navigation-toolbar.component.html',
   styleUrl: './navigation-toolbar.component.scss',
 })
-export class NavigationToolbarComponent {
+export class NavigationToolbarComponent implements OnInit {
 
     constructor(
     public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog,
     public snackBar: MatSnackBar,
     private router: Router
   ) { }
+
+  ngOnInit(): void {
+  }
+
+
    logout(): void {
     // temporary stub
     localStorage.clear();
     this.router.navigate(['welcome']);
     this.snackBar.open('Logged out', 'OK', { duration: 2000 });
     console.log('Logging out');
-
-    
-    isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
   }
 
-}}
+    openUserProfileDialog(): void {
+    this.dialog.open(UserProfileComponent, {
+      width: '280px'
+    });
+  }
+}
