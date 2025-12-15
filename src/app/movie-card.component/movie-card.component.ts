@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -11,6 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.scss',
 })
+
 export class MovieCardComponent implements OnInit{
 
   movies: any[] = [];
@@ -19,7 +19,6 @@ export class MovieCardComponent implements OnInit{
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar,
     private router: Router,
-    public dialogRef: MatDialogRef<MovieCardComponent>
   ) {}
   
   ngOnInit(): void {
