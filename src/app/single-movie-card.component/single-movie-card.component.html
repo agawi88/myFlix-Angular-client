@@ -5,29 +5,33 @@
     <mat-card style="flex: 1 1 auto;">
         <mat-card-header>
         <mat-card-title>{{movie.Title}}</mat-card-title>
-            <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
         </mat-card-header>
-        <img src="{{movie.ImagePath}}" alt="{{movie.Title}}" />
+        <mat-card-content>
+            <img src="{{movie.ImagePath}}" alt="{{movie.Title}}" />
+
+            <p>{{ movie.Description }}</p>
+        </mat-card-content>
         <mat-card-actions>
+            <strong>Genre:</strong>
            <button
+                (click)="openGenre()"
                 mat-button
                 color="primary"
             >
-                Genre
+                {{ movie.Genre.Name }}
             </button>
+            <strong>Director:</strong>
             <button
                 mat-button
                 color="primary"
+                (click)="openDirector()"
             >
-                Director
+                {{ movie.Director.Name }}
             </button>
-<!--              <button
-                mat-button
-                color="primary"
-            >
-                Synopsis
-            </button> -->
-            <mat-icon>favorite_border</mat-icon>
+            <button
+            mat-icon-button>
+            favorite_border 
+        </button>
         </mat-card-actions>
     </mat-card>
 </div>
