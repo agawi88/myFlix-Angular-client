@@ -1,0 +1,21 @@
+.mat-card {
+  /* make the card a positioned ancestor so absolutely positioned
+     children (like the close button) are positioned relative to it */
+  position: relative;
+}
+
+.closeButton {
+  /* place the button in the lower-right corner of the card/dialog */
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  /* keep visual spacing and touch target */
+  padding: 6px 12px;
+}
+
+/* Small screens: reduce offset so button remains visible */
+/* @media (max-width: 480px) {
+  .closeButton {
+    right: 8px;
+    bottom: 8px;
+  }} */
