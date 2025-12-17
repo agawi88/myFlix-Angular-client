@@ -18,24 +18,39 @@ export class UserProfileComponent {
     public snackBar: MatSnackBar,
     private router: Router
   ) { }
+  // holds the user object returned from the API
+  user: any = null;
+  // optional: list of favorite movies for display
+  favoriteMovies: any[] = [];
+
   ngOnInit(): void {
-    }
+    // load the current user's data when the profile component initializes
+    this.getUserDetails();
+  }
 
 
   getUserDetails(): void {
-    this.fetchApiData.getUserDetails().subscribe((resp: any) => {
-     this.dialogRef.close(); // This will close the modal on success!
-     console.log(resp);
-      localStorage.setItem('user', resp.user.Username);
-      localStorage.setItem('token', resp.token);
-     this.snackBar.open('User Profile accessed successfully!', 'OK', {
+    // The service reads the logged-in Username from localStorage, so we don't pass any input here
+    this.fetchApiData.getUserDetails().subscribe((resp) => {
+      console.log('getUserDetails response', resp);
+      this.user = resp;
+      // if the API returns favorite movies inside the user object, copy them for easy iteration
+      if (resp && resp.FavoriteMovies) {
+        this.favoriteMovies = resp.FavoriteMovies;
+      }
+      this.snackBar.open('User Profile accessed successfully!', 'OK', {
         duration: 2000
-     });
-     this.router.navigate(['profile']);
-    }, (response) => {
-      this.snackBar.open(response, 'OK', {
+      });
+    }, (error) => {
+      console.error('getUserDetails error', error);
+      this.snackBar.open(error?.message || 'Failed to load profile', 'OK', {
         duration: 2000
-      });    });
+      });
+    });
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close();
   }
 
 }
