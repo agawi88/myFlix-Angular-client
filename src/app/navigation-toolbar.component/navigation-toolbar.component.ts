@@ -37,7 +37,7 @@ export class NavigationToolbarComponent implements OnInit {
 
     openUserProfileDialog(): void {
     this.dialog.open(UserProfileComponent, {
-      width: '280px'
+      width: '480px',
     });
   }
 }
