@@ -1,5 +1,3 @@
-<app-navigation-toolbar></app-navigation-toolbar>
-
 <!-- src/app/movie-card/movie-card.component.html -->
 <div style="display: flex;">
     <mat-card style="flex: 1 1 auto;">
@@ -7,13 +5,13 @@
         <mat-card-title> My Profile </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p><strong>Username:</strong> {{ users.Username }}</p>
-            <p><strong>Email:</strong> {{ users.Email }}</p>
-            <p><strong>Birthday:</strong> {{ users.Birthday | date }}</p>
+            <p><strong>Username:</strong> {{ user.Username }}</p>
+            <p><strong>Email:</strong> {{ user.Email }}</p>
+            <p><strong>Birthday:</strong> {{ user.DateOfBirth | date }}</p>
             <p><strong>Favorite Movies:</strong></p>
-<!--             <ul>
+            <ul>
                 <li *ngFor="let movie of favoriteMovies">{{ movie.Title }}</li>
-            </ul> -->
+            </ul>
         </mat-card-content>
 
 <!--     <mat-card-actions>
@@ -25,7 +23,7 @@
         </button>
     </mat-card-actions> -->
     <mat-card-footer>
-        <button mat-button color="accent" (click)="closeDialog()">
+        <button mat-button class="closeButton" color="accent" (click)="closeDialog()">
             Close
         </button>
     </mat-card-footer>
