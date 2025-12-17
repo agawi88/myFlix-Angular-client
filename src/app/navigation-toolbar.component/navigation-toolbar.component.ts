@@ -3,7 +3,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog'; 
+import { MatDialog } from '@angular/material/dialog'; 
 import { OnInit } from '@angular/core';
 import { UserProfileComponent } from '../user-profile.component/user-profile.component';
 
