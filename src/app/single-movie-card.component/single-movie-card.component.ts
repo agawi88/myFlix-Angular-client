@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-single-movie-card.component',
@@ -12,35 +10,26 @@ import { Inject } from '@angular/core';
   templateUrl: './single-movie-card.component.html',
   styleUrl: './single-movie-card.component.scss',
 })
-export class SingleMovieCardComponent {
+export class SingleMovieCardComponent implements OnInit {
+
+  movie: any;
 
   constructor(
     public fetchApiData: FetchApiDataService,
+    public dialog: MatDialog, 
     public snackBar: MatSnackBar,
-    private router: Router,
-    @Inject(MAT_DIALOG_DATA) public movie: any,
+    private router: Router
   ) {}
-  
-/*   getSingleMovie(Title: string): void {
-    this.fetchApiData.getSingleMovie(Title).subscribe((resp: any) => {
-      console.log(resp);
-      return resp;
-    });
-  } */
 
-/*   getDirector(directorName: string): void {
-    this.fetchApiData.getDirector(directorName).subscribe((resp: any) => {
-      console.log(resp);
-      return resp;
+  ngOnInit(): void {
+    this.getSingleMovie(this.movie.Title);
+  }
+  
+  getSingleMovie(Title: string): void {
+    this.fetchApiData.getSingleMovie(Title).subscribe(movie => {
+this.movie = movie;
     });
   }
-
-  getGenre(genreName: string): void {
-    this.fetchApiData.getGenre(genreName).subscribe((resp: any) => {
-      console.log(resp);
-      return resp;
-    });
-  } */
 
   addMovieToFavs(movieID: string): void {
     this.fetchApiData.addMovieToFavs(movieID).subscribe((resp: any) => {
