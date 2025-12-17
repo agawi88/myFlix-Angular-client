@@ -18,7 +18,6 @@ export class MovieCardComponent implements OnInit{
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialog: MatDialog,
     public snackBar: MatSnackBar,
     private router: Router,
   ) {}
@@ -58,10 +57,7 @@ export class MovieCardComponent implements OnInit{
   }
 
   // open dialog for the clicked movie — pass the actual movie object as dialog data
-  openSingleMovieDialog(movie: any): void {
-    this.dialog.open(SingleMovieCardComponent, {
-      data: movie,
-      width: '480px',
-    });
+  openSingleMovieCardComponent(movie: any): void {
+    this.router.navigate(['/movies', movie._id]);
   }
 }
