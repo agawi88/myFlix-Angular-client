@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './director-view.component.scss',
 })
 export class DirectorViewComponent {
-
+ getDirector(directorName: string): void {
+    this.fetchApiData.getDirector(directorName).subscribe((resp: any) => {
+      console.log(resp);
+      return resp;
+    });
+  }
 }
