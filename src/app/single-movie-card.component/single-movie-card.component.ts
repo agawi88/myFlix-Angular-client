@@ -3,6 +3,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { DirectorViewComponent } from '../director-view.component/director-view.component';
 
 @Component({
   selector: 'app-single-movie-card.component',
@@ -28,6 +29,28 @@ export class SingleMovieCardComponent implements OnInit {
   getSingleMovie(Title: string): void {
     this.fetchApiData.getSingleMovie(Title).subscribe(movie => {
 this.movie = movie;
+    });
+  }
+
+  openDirectorDialog(): void {
+    this.dialog.open(DirectorViewComponent, {
+      data: {
+        Name: this.movie.Director.Name,
+        Bio: this.movie.Director.Bio,
+        Birth: this.movie.Director.Birth,
+        Death: this.movie.Director.Death
+      },
+      width: '400px'
+    });
+  }
+
+  openGenreDialog(): void {
+    this.dialog.open(DirectorViewComponent, {
+      data: {
+        Name: this.movie.Genre.Name,
+        Description: this.movie.Genre.Description
+      },
+      width: '400px'
     });
   }
 
