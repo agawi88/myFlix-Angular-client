@@ -26,15 +26,14 @@ import { DirectorViewComponent } from './director-view.component/director-view.c
 import { GenreViewComponent } from './genre-view.component/genre-view.component';
 import { NavigationToolbarComponent } from './navigation-toolbar.component/navigation-toolbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { SingleMovieCardComponent } from './single-movie-card.component/single-movie-card.component';
 
 
 ///
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
-  { path: 'movies/profile', component: UserProfileComponent },
- /* { path: 'favorites', component: FavoriteMoviesComponent },
- */
+  { path: 'movies/:id', component: SingleMovieCardComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -51,6 +50,7 @@ const appRoutes: Routes = [
     DirectorViewComponent,
     GenreViewComponent,
     NavigationToolbarComponent,
+    SingleMovieCardComponent,
   ],
   imports: [
     CommonModule,
