@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DirectorViewComponent } from '../director-view.component/director-view.component';
 
@@ -13,43 +13,45 @@ import { DirectorViewComponent } from '../director-view.component/director-view.
 })
 export class SingleMovieCardComponent implements OnInit {
 
-  movie: any;
+  movie: any = {};
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog, 
     public snackBar: MatSnackBar,
-    private router: Router
+    private route: ActivatedRoute,
+    //private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.getSingleMovie(this.movie.Title);
+const title = this.route.snapshot.paramMap.get('Title');
+
+  if (title) {
+    this.getSingleMovie(title);
   }
-  
+}
+
   getSingleMovie(Title: string): void {
-    this.fetchApiData.getSingleMovie(Title).subscribe(movie => {
-this.movie = movie;
+    this.fetchApiData.getSingleMovie(Title).subscribe((resp: any) => {
+      this.movie = resp;
+      console.log(this.movie);
+      return this.movie;
     });
   }
 
-  openDirectorDialog(): void {
+  openDirectorDialog(directorName: any): void {
+    if (!directorName) return;
     this.dialog.open(DirectorViewComponent, {
-      data: {
-        Name: this.movie.Director.Name,
-        Bio: this.movie.Director.Bio,
-        Birth: this.movie.Director.Birth,
-        Death: this.movie.Director.Death
-      },
+      data: directorName,
       width: '400px'
     });
   }
 
-  openGenreDialog(): void {
+  openGenreDialog(genreName: any): void {
+        if (!genreName) return;
+
     this.dialog.open(DirectorViewComponent, {
-      data: {
-        Name: this.movie.Genre.Name,
-        Description: this.movie.Genre.Description
-      },
+      data: genreName,
       width: '400px'
     });
   }

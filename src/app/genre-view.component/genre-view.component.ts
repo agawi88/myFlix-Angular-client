@@ -13,7 +13,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class GenreViewComponent {
 
-  movies: any[] = [];
+  movies: any;
 
   constructor(
     public fetchApiData: FetchApiDataService,

@@ -2,31 +2,34 @@
 
 <!-- src/app/movie-card/movie-card.component.html -->
 <div style="display: flex;">
-    <mat-card style="flex: 1 1 auto;">
+    <mat-card *ngIf="movie" style="flex: 1 1 auto;">
         <mat-card-header>
         <mat-card-title>{{movie.Title}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <img src="{{movie.ImagePath}}" alt="{{movie.Title}}" />
-
+            <img 
+            *ngIf="movie?.ImagePath"
+            src="{{movie.ImagePath}}" 
+            alt="{{movie.Title}}" />
+            <strong>Synopsis:</strong>
             <p>{{ movie.Description }}</p>
         </mat-card-content>
         <mat-card-actions>
             <strong>Genre:</strong>
            <button
-                (click)="openGenreDialog()"
+                (click)="openGenreDialog(movie.Genre)"
                 mat-button
                 color="primary"
             >
-                {{ movie.Genre.Name }}
+                {{ movie.Genre }}
             </button>
             <strong>Director:</strong>
             <button
                 mat-button
                 color="primary"
-                (click)="openDirectorDialog()"
+                (click)="openDirectorDialog(movie.Director)"
             >
-                {{ movie.Director.Name }}
+                {{ movie.Director }}
             </button>
             <button
             mat-icon-button>
