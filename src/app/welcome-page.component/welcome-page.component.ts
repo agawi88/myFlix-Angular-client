@@ -9,11 +9,6 @@ import { Router } from '@angular/router';
   standalone: false,
   templateUrl: './welcome-page.component.html',
   styleUrl: './welcome-page.component.scss',
-  /*     imports: [
-    CommonModule,
-    MatDialogModule,
-    MatButtonModule
-  ], */
 })
 export class WelcomePageComponent implements OnInit {
 
