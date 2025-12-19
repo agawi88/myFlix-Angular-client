@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SingleMovieCardComponent } from '../single-movie-card.component/single-movie-card.component';
 import { MatDialog } from '@angular/material/dialog';
+import { title } from 'process';
 
 @Component({
   selector: 'app-movie-card.component',
@@ -57,7 +58,7 @@ export class MovieCardComponent implements OnInit{
   }
 
   // open dialog for the clicked movie — pass the actual movie object as dialog data
-  openSingleMovieCardComponent(title: any): void {
-    this.router.navigate(['/movies', title]);
+  openSingleMovieCardComponent(Title: any): void {
+    this.router.navigate(['/movies', Title]);
   }
 }

@@ -21,7 +21,7 @@
                 color="primary"
             >
             <strong>View Genre</strong>
-                    {{ movie.Genre }}
+                    {{ movie.Genre.Name }}
             </button>
             <button
                 mat-button
@@ -29,7 +29,7 @@
                 (click)="openDirectorDialog(movie.director)"
             >
                 <strong>View Director</strong>
-                {{ movie.Director }}
+                {{ movie.Director.Namer }}
             </button>
             <button
             mat-icon-button>

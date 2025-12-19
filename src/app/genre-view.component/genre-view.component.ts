@@ -17,7 +17,7 @@ export class GenreViewComponent  implements OnInit {
   genre: any;
 
   constructor(
-   // @Inject(MAT_DIALOG_DATA) public data: { genreName: string },
+    @Inject(MAT_DIALOG_DATA) public data: { genreName: string },
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<GenreViewComponent>,
@@ -25,12 +25,14 @@ export class GenreViewComponent  implements OnInit {
     private router: Router 
   ) {}
   ngOnInit(): void {
-    this.getGenre(this.genre);
+   // const genreName = this.dialogRef.componentInstance.movie.genreName;
+    //this.getGenre(genreName);
   }
 
-  getGenre(genre: string): void {
-    this.fetchApiData.getGenre(genre).subscribe((resp: any) => {
+  getGenre(genreName: string): any {
+    this.fetchApiData.getGenre(genreName).subscribe((resp: any) => {
       console.log(resp);
+      this.genre = resp;
       return resp;
     });
   }

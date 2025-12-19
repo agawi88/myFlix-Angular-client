@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DirectorViewComponent } from '../director-view.component/director-view.component';
+import { GenreViewComponent } from '../genre-view.component/genre-view.component';
 
 @Component({
   selector: 'app-single-movie-card.component',
@@ -14,7 +15,6 @@ import { DirectorViewComponent } from '../director-view.component/director-view.
 export class SingleMovieCardComponent implements OnInit {
 
   movie: any = {};
-  title: string = '';
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -25,18 +25,18 @@ export class SingleMovieCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-const title = this.route.snapshot.paramMap.get('Title');
+  const movieTitle = this.route.snapshot.paramMap.get('Title');
 
-  if (title) {
-    this.getSingleMovie(title);
+  if (movieTitle) {
+    this.getSingleMovie(movieTitle);
   }
 }
 
-  getSingleMovie(Title: string): void {
-    this.fetchApiData.getSingleMovie(Title).subscribe((resp: any) => {
-      this.title = resp;
-      console.log(this.title);
-      return this.title;
+  getSingleMovie(movieTitle: string): any {
+    this.fetchApiData.getSingleMovie(movieTitle).subscribe((resp: any) => {
+      this.movie = resp;
+      console.log(this.movie);
+      return this.movie;
     });
   }
 
@@ -47,10 +47,9 @@ const title = this.route.snapshot.paramMap.get('Title');
     });
   }
 
-  openGenreDialog(genre: any): void {
-    this.dialog.open(DirectorViewComponent, {
-      data: { genre
-       },
+  openGenreDialog(movie: any): void {
+    this.dialog.open(GenreViewComponent, {
+      data: { genre: movie.genre },
       width: '400px'
     });
   }
