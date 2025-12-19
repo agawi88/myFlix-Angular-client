@@ -8,27 +8,27 @@
         </mat-card-header>
         <mat-card-content>
             <img 
-            *ngIf="movie?.ImagePath"
-            src="{{movie.ImagePath}}" 
+            *ngIf="movie?.ImageUrl"
+            src="{{movie?.ImageUrl}}" 
             alt="{{movie.Title}}" />
             <strong>Synopsis:</strong>
             <p>{{ movie.Description }}</p>
         </mat-card-content>
         <mat-card-actions>
-            <strong>Genre:</strong>
            <button
-                (click)="openGenreDialog(movie.Genre)"
+                (click)="openGenreDialog(movie.genre)"
                 mat-button
                 color="primary"
             >
-                {{ movie.Genre }}
+            <strong>View Genre</strong>
+                    {{ movie.Genre }}
             </button>
-            <strong>Director:</strong>
             <button
                 mat-button
                 color="primary"
-                (click)="openDirectorDialog(movie.Director)"
+                (click)="openDirectorDialog(movie.director)"
             >
+                <strong>View Director</strong>
                 {{ movie.Director }}
             </button>
             <button

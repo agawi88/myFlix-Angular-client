@@ -14,13 +14,14 @@ import { DirectorViewComponent } from '../director-view.component/director-view.
 export class SingleMovieCardComponent implements OnInit {
 
   movie: any = {};
+  title: string = '';
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog, 
     public snackBar: MatSnackBar,
     private route: ActivatedRoute,
-    //private router: Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,25 +34,23 @@ const title = this.route.snapshot.paramMap.get('Title');
 
   getSingleMovie(Title: string): void {
     this.fetchApiData.getSingleMovie(Title).subscribe((resp: any) => {
-      this.movie = resp;
-      console.log(this.movie);
-      return this.movie;
+      this.title = resp;
+      console.log(this.title);
+      return this.title;
     });
   }
 
-  openDirectorDialog(directorName: any): void {
-    if (!directorName) return;
+  openDirectorDialog(director: any): void {
     this.dialog.open(DirectorViewComponent, {
-      data: directorName,
+      data: { director },
       width: '400px'
     });
   }
 
-  openGenreDialog(genreName: any): void {
-        if (!genreName) return;
-
+  openGenreDialog(genre: any): void {
     this.dialog.open(DirectorViewComponent, {
-      data: genreName,
+      data: { genre
+       },
       width: '400px'
     });
   }

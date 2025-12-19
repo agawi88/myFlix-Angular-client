@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-director-view',
@@ -11,16 +13,19 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DirectorViewComponent {
 
-    movies: any[] = [];
+    movie: any[] = [];
+    director: any = {};
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar,
+    private MatDialog: MatDialog,
+    private router: Router,
     public dialogRef: MatDialogRef<DirectorViewComponent>,
   ) {}
   
- getDirector(directorName: string): void {
-    this.fetchApiData.getDirector(directorName).subscribe((resp: any) => {
+ getDirector(director: string): void {
+    this.fetchApiData.getDirector(director).subscribe((resp: any) => {
       console.log(resp);
       return resp;
     });

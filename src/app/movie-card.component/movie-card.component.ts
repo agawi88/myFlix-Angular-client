@@ -57,7 +57,7 @@ export class MovieCardComponent implements OnInit{
   }
 
   // open dialog for the clicked movie — pass the actual movie object as dialog data
-  openSingleMovieCardComponent(movie: any): void {
-    this.router.navigate(['/movies', movie.Title]);
+  openSingleMovieCardComponent(title: any): void {
+    this.router.navigate(['/movies', title]);
   }
 }

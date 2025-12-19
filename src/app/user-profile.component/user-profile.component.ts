@@ -14,12 +14,13 @@ export class UserProfileComponent {
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<UserProfileComponent>,
+    //public dialogRef: MatDialogRef<UserProfileComponent>,
     public snackBar: MatSnackBar,
     private router: Router
   ) { }
   // holds the user object returned from the API
-  user: any = null;
+  userData: any | null = null;
+  username: string = '';
   // optional: list of favorite movies for display
   favoriteMovies: any[] = [];
 
@@ -33,11 +34,9 @@ export class UserProfileComponent {
     // The service reads the logged-in Username from localStorage, so we don't pass any input here
     this.fetchApiData.getUserDetails().subscribe((resp) => {
       console.log('getUserDetails response', resp);
-      this.user = resp;
+      this.userData = resp;
       // if the API returns favorite movies inside the user object, copy them for easy iteration
-      if (resp && resp.FavoriteMovies) {
-        this.favoriteMovies = resp.FavoriteMovies;
-      }
+      this.favoriteMovies = resp?.FavoriteMovies || [];
       this.snackBar.open('User Profile accessed successfully!', 'OK', {
         duration: 2000
       });
@@ -49,8 +48,11 @@ export class UserProfileComponent {
     });
   }
 
-  closeDialog(): void {
+/*   closeDialog(): void {
     this.dialogRef.close();
-  }
+  } */
 
+    goBack(): void {
+    this.router.navigate(['/movies']);
+  }
 }

@@ -33,7 +33,8 @@ import { SingleMovieCardComponent } from './single-movie-card.component/single-m
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
-  { path: 'movies/:id', component: SingleMovieCardComponent },
+  { path: 'movies/:Title', component: SingleMovieCardComponent },
+  { path: 'users/:Username', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 

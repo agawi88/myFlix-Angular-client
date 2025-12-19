@@ -24,6 +24,7 @@ export class NavigationToolbarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
   }
 
 
@@ -35,9 +36,8 @@ export class NavigationToolbarComponent implements OnInit {
     console.log('Logging out');
   }
 
-    openUserProfileDialog(): void {
-    this.dialog.open(UserProfileComponent, {
-      width: '480px',
-    });
+    openUserProfile(): void {
+    this.router.navigate(['/users', localStorage.getItem('user')]);
   }
 }
+

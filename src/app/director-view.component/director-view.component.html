@@ -1,14 +1,14 @@
 <!-- src/app/movie-card/movie-card.component.html -->
 <div style="display: flex;">
-    <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
-        <mat-card-header *ngIf="movie">
-        <mat-card-title>{{movie.Director}}</mat-card-title>
+    <mat-card style="flex: 1 1 auto;">
+        <mat-card-header *ngIf="director">
+        <mat-card-title>{{director.Name}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p>Name:{{ this.movie.Director.Name }}</p>
-            <p>Bio: {{ this.movie.Director.Bio }}</p>
-            <p>Born: {{ this.movie.Director.DateOfBirth }}</p>
-            <p *ngIf="this.movie.Director.DateOfDeath">Died: {{ this.movie.Director.DateOfDeath }}</p>
+            <p>Name:{{ director.Name }}</p>
+            <p>Bio: {{ director.Bio }}</p>
+            <p>Born: {{ director.DateOfBirth }}</p>
+            <p *ngIf="director.DateOfDeath">Died: {{ director.DateOfDeath }}</p>
         </mat-card-content>
         <mat-card-footer>
             <p>Movies by this director will be listed here.</p>
