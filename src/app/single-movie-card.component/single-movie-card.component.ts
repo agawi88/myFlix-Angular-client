@@ -40,6 +40,10 @@ export class SingleMovieCardComponent implements OnInit {
     });
   }
 
+      goBack(): void {
+    this.router.navigate(['/movies']);
+  }
+
   openDirectorDialog(director: any): void {
     this.dialog.open(DirectorViewComponent, {
       data: { director },

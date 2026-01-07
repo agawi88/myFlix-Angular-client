@@ -29,12 +29,17 @@
                 (click)="openDirectorDialog(movie.director)"
             >
                 <strong>View Director</strong>
-                {{ movie.Director.Namer }}
+                {{ movie.Director.Name }}
             </button>
             <button
             mat-icon-button>
             favorite_border 
         </button>
         </mat-card-actions>
+            <mat-card-footer>
+        <button mat-button class="closeButton" color="accent" (click)="goBack()">
+            Return
+        </button>
+    </mat-card-footer>
     </mat-card>
 </div>
