@@ -48,7 +48,7 @@
                     "with": "src/environments/environment.prod.ts"
               }
                  ],
-              "baseHref": "/myFlix-Angular-client/",
+              "baseHref": "/",
               "outputHashing": "all",
               "budgets": [
                 {
