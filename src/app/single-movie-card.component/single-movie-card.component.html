@@ -8,37 +8,51 @@
         </mat-card-header>
         <mat-card-content>
             <img 
-            src="{{movie.ImagePath}}" 
-            alt="{{movie.Title}}" />
-            <strong>Synopsis:</strong>
-            <p>{{ movie.Description }}</p>
-        </mat-card-content>
-        <mat-card-actions>
-            <strong>Genre: </strong>
-           <button
+            mat-card-image
+            [src]="movie?.ImageURL" [alt]="movie.Title" />
+            <p><strong>Synopsis:</strong> {{ movie.Description }} </p>
+
+            <p><strong>Release Year:</strong>
+            {{ movie.ReleaseYear }}</p>
+
+            <p><strong>Setting: </strong>
+            {{ movie.Setting }}</p>
+<!--             <strong>Actors:</strong>
+            <p>{{ movie.Actors.join(', ') }}</p> -->
+
+            <p><strong> Featured: </strong>
+            {{ movie.Featured ? 'Yes' : 'No' }}</p>
+
+            <p><strong> Genre:   </strong>
+                <button
                 (click)="openGenreDialog(movie.Genre.Name)"
                 mat-button
-                color="primary"
-            >
+                color="primary">  
             {{ movie.Genre.Name }}
             </button>
-            <strong>Director: </strong>
+            </p>
+
+            <p><strong> Director:  </strong>
             <button
                 mat-button
                 color="primary"
                 (click)="openDirectorDialog(movie.Director.Name)"
             >
-                {{ movie.Director.Name }}
+                  {{ movie.Director.Name }}
             </button>
-            <button
-            mat-icon-button>
-            favorite_border 
-        </button>
-        </mat-card-actions>
-            <mat-card-footer>
-        <button mat-button class="closeButton" color="accent" (click)="goBack()">
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <p><button
+            mat-icon-button
+            class="likeButton"
+            color="accent"
+            (click)="addMovieToFavs(movieID)">
+            <mat-icon>favorite_border</mat-icon>
+            </button>
+            <button mat-button class="closeButton" color="accent" (click)="goBack()">
             Return
-        </button>
-    </mat-card-footer>
+            </button></p>
+    </mat-card-actions>
     </mat-card>
 </div>
