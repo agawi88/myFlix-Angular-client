@@ -1,12 +1,12 @@
 <!-- src/app/movie-card/movie-card.component.html -->
 <div style="display: flex;">
     <mat-card style="flex: 1 1 auto;">
-        <mat-card-header *ngIf="data.movie">
-        <mat-card-title>{{data.movie.genre?.Name}}</mat-card-title>
+        <mat-card-header *ngIf="data.genre">
+        <mat-card-title>{{data.genre?.Name}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <p><strong> Description: </strong> 
-            {{data.movie.genre?.Description}}</p>
+            {{data.genre?.Description}}</p>
         </mat-card-content>
 <!--         <mat-card-footer>
             <p>Movies in this genre will be listed here.</p>

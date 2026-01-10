@@ -44,20 +44,16 @@ export class SingleMovieCardComponent implements OnInit {
     this.router.navigate(['/movies']);
   }
 
-  openDirectorDialog(movie: any): void {
+  openDirectorDialog(director: any): void {
     this.dialog.open(DirectorViewComponent, {
-      data: { director: movie.director },
+      data: { director: director, movie: this.movie },
       width: '400px'
     });
   }
 
-  openGenreDialog(movie: any): void {
-    console.log('movie object:', movie);
-console.log('movie.genre:', movie?.genre);
-console.log('movie.Genre:', movie?.Genre);
-
+  openGenreDialog(genre: any): void {
     this.dialog.open(GenreViewComponent, {
-      data: { genre: movie.Genre },
+      data: { genre: genre, movie: this.movie },
       width: '400px'
     });
   }
