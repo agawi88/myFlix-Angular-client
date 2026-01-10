@@ -34,13 +34,6 @@ export class MovieCardComponent implements OnInit{
     });
   }
 
-/*   getSingleMovie(Title: string): void {
-    this.fetchApiData.getSingleMovie(Title).subscribe((resp: any) => {
-      console.log(resp);
-      return resp;
-    });
-  } */
-
   addMovieToFavs(movieID: string): void {
     this.fetchApiData.addMovieToFavs(movieID).subscribe((resp: any) => {
       console.log(resp);

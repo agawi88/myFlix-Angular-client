@@ -52,8 +52,12 @@ export class SingleMovieCardComponent implements OnInit {
   }
 
   openGenreDialog(movie: any): void {
+    console.log('movie object:', movie);
+console.log('movie.genre:', movie?.genre);
+console.log('movie.Genre:', movie?.Genre);
+
     this.dialog.open(GenreViewComponent, {
-      data: { genre: movie.genre },
+      data: { genre: movie.Genre },
       width: '400px'
     });
   }
