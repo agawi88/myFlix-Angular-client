@@ -8,18 +8,16 @@
         </mat-card-header>
         <mat-card-content>
             <img [src]="movie.ImageURL" [alt]="movie.Title" />
-            <strong>Directed by: </strong> 
-            <p>{{ movie.Director.Name }}</p>
-            <strong>Genre: </strong> 
-            <p>{{movie.Genre.Name}}</p>
+            <p><strong>Directed by: </strong> 
+            {{ movie.Director.Name }}</p>
+            <p><strong>Genre: </strong> 
+            {{movie.Genre.Name}}</p>
         </mat-card-content>
         <mat-card-actions>
             <mat-icon>favorite_border</mat-icon>
-        </mat-card-actions>
-        <mat-card-footer>
-        <button mat-button class="closeButton" color="accent" (click)="openSingleMovieCardComponent(movie.Title)">
+                    <button mat-button class="closeButton" color="accent" (click)="openSingleMovieCardComponent(movie.Title)">
             Read more ...
         </button>
-    </mat-card-footer>
+        </mat-card-actions>
     </mat-card>
 </div>

@@ -1,3 +1,15 @@
 .closeButton {
-    align-items: end;
+    align-items: right;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px 0; /* matches <p> spacing */
+}
+
+.label {
+  font-weight: 600;
+  white-space: nowrap;
 }
