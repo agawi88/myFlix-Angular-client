@@ -58,29 +58,6 @@ export class SingleMovieCardComponent implements OnInit {
     });
   }
 
-/*   addMovieToFavs(movieID: string): void {
-      const storedUser = localStorage.getItem('user');
-      if (!storedUser) {
-     this.snackBar.open('You need to be logged in to add movies to favorites!', 'OK', {
-        duration: 2000
-     });
-      return;
-    }
-    this.fetchApiData.addMovieToFavs(movieID).subscribe((resp: any) => {
-      console.log(resp);
-
-    isFavorite(movieID: string): boolean {
-      const user = this.fetchApiData.getUser();
-      return user.FavoriteMovies.includes(movieID);
-    }
-  }); */
-
-  removeMovieFromFavs(movieID: string): void {
-    this.fetchApiData.removeMovieFromFavs(movieID).subscribe((resp: any) => {
-      console.log(resp);
-      return resp;
-    });
-  }
 
 }
 

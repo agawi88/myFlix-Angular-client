@@ -27,8 +27,8 @@ export class UserProfileComponent {
   ngOnInit(): void {
     // load the current user's data when the profile component initializes
     this.getUserDetails();
+    this.getUserFavMovies();
   }
-
 
   getUserDetails(): void {
     // The service reads the logged-in Username from localStorage, so we don't pass any input here
@@ -47,10 +47,29 @@ export class UserProfileComponent {
       });
     });
   }
+  getUserFavMovies(): void {
+    this.fetchApiData.getUserFavMovies().subscribe( movies => {
+      this.favoriteMovies = movies;
+      console.log(movies);
+      return movies;
+    });
+  }
 
-/*   closeDialog(): void {
-    this.dialogRef.close();
-  } */
+  removeMovieFromFavs(movieID: string): void {
+    this.fetchApiData.removeMovieFromFavs(movieID).subscribe((resp: any) => {
+      this.favoriteMovies = this.favoriteMovies.filter(
+        movie => movie._id !== movieID);
+      this.snackBar.open('Movie removed from favorites', 'OK', {
+        duration: 2000
+      });
+      console.log(resp);
+      return resp;
+    });
+  }
+
+  isFavorite(movieID: string): boolean {
+    return this.favoriteMovies.includes(movieID);
+  }
 
     goBack(): void {
     this.router.navigate(['/movies']);
