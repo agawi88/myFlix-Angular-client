@@ -2,13 +2,13 @@
 <div style="display: flex;">
     <mat-card style="flex: 1 1 auto;">
         <mat-card-header *ngIf="data.director">
-        <mat-card-title>{{data.director.Name}}</mat-card-title>
+        <mat-card-title>{{data.director.Name || 'Not specified'}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p>Name:{{ data.director.Name }}</p>
-            <p>Bio: {{ data.director.Bio }}</p>
-            <p>Born: {{ data.director.DateOfBirth }}</p>
-            <p *ngIf="data.director.DateOfDeath">Died: {{ data.director.DateOfDeath }}</p>
+            <p><strong>Name:</strong> {{ data.director.Name || 'Not specified' }}</p>
+            <p><strong>Bio:</strong> {{ data.director.Bio || "No Bio available." }}</p>
+            <p><strong>Born:</strong> {{ data.director.DateOfBirth | date }}</p>
+            <p *ngIf="data.director.DateOfDeath"><strong>Died:</strong> {{ data.director.DateOfDeath  | date }}</p>
         </mat-card-content>
         <mat-card-footer>
             <p>Movies by this director will be listed here.</p>

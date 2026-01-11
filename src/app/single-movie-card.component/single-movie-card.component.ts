@@ -47,7 +47,7 @@ export class SingleMovieCardComponent implements OnInit {
   openDirectorDialog(director: any): void {
     this.dialog.open(DirectorViewComponent, {
       data: { director: director, movie: this.movie },
-      width: '400px'
+      width: '600px'
     });
   }
 
@@ -58,16 +58,22 @@ export class SingleMovieCardComponent implements OnInit {
     });
   }
 
-  addMovieToFavs(movieID: string): void {
-    this.fetchApiData.addMovieToFavs(movieID).subscribe((resp: any) => {
-      console.log(resp);
-/*       localStorage.setItem('user', response.user.Username);
-      localStorage.setItem('token', response.token); */
-     this.snackBar.open('user logged in successfully!', 'OK', {
+/*   addMovieToFavs(movieID: string): void {
+      const storedUser = localStorage.getItem('user');
+      if (!storedUser) {
+     this.snackBar.open('You need to be logged in to add movies to favorites!', 'OK', {
         duration: 2000
      });
-    });
-  }
+      return;
+    }
+    this.fetchApiData.addMovieToFavs(movieID).subscribe((resp: any) => {
+      console.log(resp);
+
+    isFavorite(movieID: string): boolean {
+      const user = this.fetchApiData.getUser();
+      return user.FavoriteMovies.includes(movieID);
+    }
+  }); */
 
   removeMovieFromFavs(movieID: string): void {
     this.fetchApiData.removeMovieFromFavs(movieID).subscribe((resp: any) => {
