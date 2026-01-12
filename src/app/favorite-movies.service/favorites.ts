@@ -18,10 +18,16 @@ export class FavoritesServices {
   ) {}
 
   loadFavorites(): void {
-    this.fetchApiData.getUserFavMovies().subscribe(movies => {
+    this.fetchApiData.getUserFavMovies().subscribe({
+      next: movies => {
       this.favoriteMovies = movies;
+    },
+      error: err => {
+        console.error('Failed to load favorite movies', err);
+      }
     });
   }
+
 
   isFavorite(movieID: string): boolean {
     return this.favoriteMovies.some(m => m._id === movieID);
