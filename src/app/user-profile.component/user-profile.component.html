@@ -11,13 +11,26 @@
             <p><strong>Password:</strong> {{ userData?.Password }}</p>
             <p><strong>Email:</strong> {{ userData?.Email }}</p>
             <p><strong>Birthday:</strong> {{ userData?.DateOfBirth | date }}</p>
-            <p><strong>Favorite Movies:</strong></p>
-            <ul>
-                <li *ngFor="let movie of favoriteMovies">{{ movie.Title }}</li>
-            </ul>
-
-        </mat-card-content>
-
+            <h2> Favorite Movies: </h2>
+            <div class="favorites-grid" *ngIf="favorites.favoriteMovies.length; else noFavs">
+            <mat-card *ngFor="let movie of favorites.favoriteMovies" class="fav-card">
+            <img mat-card-image [src]="movie.ImageURL" [alt]="movie.Title" />
+            <mat-card-title> {{movie.Title}} </mat-card-title>
+            <mat-card-actions>
+<!--                 <button mat-button color="primary" (click)="favorites.openMovieDialog(movie, movie.Title)">
+                    View Details
+                </button> -->
+                <button mat-button 
+                        color="warn" 
+                        (click)="favorites.remove(movie._id)">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </mat-card-actions>
+            </mat-card>
+            </div>            
+            <ng-template #noFavs>
+                <p>No favorite movies yet ❤️</p>
+            </ng-template>
 <!--     <mat-card-actions>
         <button mat-button color="primary" (click)="openEditUserDialog()">
             Edit Profile
@@ -26,6 +39,7 @@
             Delete Profile
         </button>
     </mat-card-actions> -->
+        </mat-card-content>
     <mat-card-footer>
         <button mat-button class="closeButton" color="accent" (click)="goBack()">
             Close

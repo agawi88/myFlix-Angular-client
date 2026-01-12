@@ -21,7 +21,7 @@ import { WelcomePageComponent } from './welcome-page.component/welcome-page.comp
 import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { UserProfileComponent } from './user-profile.component/user-profile.component';
-import { FavoriteMoviesComponent } from './favorite-movies.component/favorite-movies.component';
+import { FavoritesServices } from './favorite-movies.service/favorites';
 import { DirectorViewComponent } from './director-view.component/director-view.component';
 import { GenreViewComponent } from './genre-view.component/genre-view.component';
 import { NavigationToolbarComponent } from './navigation-toolbar.component/navigation-toolbar.component';
@@ -47,7 +47,6 @@ const appRoutes: Routes = [
     MovieCardComponent,
     WelcomePageComponent,
     UserProfileComponent,
-    FavoriteMoviesComponent,
     DirectorViewComponent,
     GenreViewComponent,
     NavigationToolbarComponent,
@@ -71,7 +70,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [FavoritesServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

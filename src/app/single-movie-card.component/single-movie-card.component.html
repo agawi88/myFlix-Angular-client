@@ -45,14 +45,14 @@
         </mat-card-content>
         <mat-card-actions>
             <p>
-<!--             <button
+            <button
             mat-icon-button
-            class="likeButton"
-            color="addMovieToFavs(movie._id)"
-            (click)="addMovieToFavs(movie._id)"
+            (click)="favorites.toggle(movie._id)"
             >
-            <mat-icon> {{ isFavorite(movie._id) ? 'favorite' : 'favorite_border' }} </mat-icon>
-            </button> -->
+            <mat-icon color="warn"> 
+                {{ isFavorite(movie._id) ? 'favorite' : 'favorite_border' }} 
+            </mat-icon>
+            </button>
             <button mat-button class="closeButton" color="accent" (click)="goBack()">
             Return
             </button></p>

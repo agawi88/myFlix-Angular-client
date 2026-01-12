@@ -14,10 +14,19 @@
             {{movie.Genre.Name}}</p>
         </mat-card-content>
         <mat-card-actions>
-            <mat-icon>favorite_border</mat-icon>
-                    <button mat-button class="closeButton" color="accent" (click)="openSingleMovieCardComponent(movie.Title)">
-            Read more ...
-        </button>
+            <p>
+            <button
+            mat-icon-button
+            (click)="favorites.toggle(movie._id)"
+            >
+            <mat-icon color="warn"> 
+                {{ isFavorite(movie._id) ? 'favorite' : 'favorite_border' }} 
+            </mat-icon>
+            </button>            
+            <button mat-button class="closeButton" color="accent" (click)="openSingleMovieCardComponent(movie.Title)">
+                Read more ...
+            </button>
+            </p>
         </mat-card-actions>
     </mat-card>
 </div>

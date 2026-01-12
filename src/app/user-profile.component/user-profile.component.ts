@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog';
+//import { MatDialogRef } from '@angular/material/dialog';
+import { FavoritesServices } from '../favorite-movies.service/favorites';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,24 +11,27 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss',
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnInit {
 
   constructor(
     public fetchApiData: FetchApiDataService,
     //public dialogRef: MatDialogRef<UserProfileComponent>,
     public snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    public favorites: FavoritesServices,
   ) { }
   // holds the user object returned from the API
   userData: any | null = null;
   username: string = '';
   // optional: list of favorite movies for display
   favoriteMovies: any[] = [];
+  movies: any[] = [];
 
   ngOnInit(): void {
     // load the current user's data when the profile component initializes
     this.getUserDetails();
-    this.getUserFavMovies();
+    this.favorites.loadFavorites();
+
   }
 
   getUserDetails(): void {
@@ -46,29 +50,6 @@ export class UserProfileComponent {
         duration: 2000
       });
     });
-  }
-  getUserFavMovies(): void {
-    this.fetchApiData.getUserFavMovies().subscribe( movies => {
-      this.favoriteMovies = movies;
-      console.log(movies);
-      return movies;
-    });
-  }
-
-  removeMovieFromFavs(movieID: string): void {
-    this.fetchApiData.removeMovieFromFavs(movieID).subscribe((resp: any) => {
-      this.favoriteMovies = this.favoriteMovies.filter(
-        movie => movie._id !== movieID);
-      this.snackBar.open('Movie removed from favorites', 'OK', {
-        duration: 2000
-      });
-      console.log(resp);
-      return resp;
-    });
-  }
-
-  isFavorite(movieID: string): boolean {
-    return this.favoriteMovies.includes(movieID);
   }
 
     goBack(): void {

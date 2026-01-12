@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DirectorViewComponent } from '../director-view.component/director-view.component';
 import { GenreViewComponent } from '../genre-view.component/genre-view.component';
+import { FavoritesServices } from '../favorite-movies.service/favorites';
 
 @Component({
   selector: 'app-single-movie-card.component',
@@ -21,7 +22,8 @@ export class SingleMovieCardComponent implements OnInit {
     public dialog: MatDialog, 
     public snackBar: MatSnackBar,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public favorites: FavoritesServices,
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class SingleMovieCardComponent implements OnInit {
 
   if (movieTitle) {
     this.getSingleMovie(movieTitle);
+    this.favorites.loadFavorites();
   }
 }
 
@@ -58,6 +61,14 @@ export class SingleMovieCardComponent implements OnInit {
     });
   }
 
-
+  isFavorite(movieID: string): boolean {
+  return this.favorites.isFavorite(movieID);
 }
 
+  toggle(movieID: string): void {
+  this.favorites.toggle(movieID);
+}
+
+
+
+}

@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { SingleMovieCardComponent } from '../single-movie-card.component/single-movie-card.component';
-import { MatDialog } from '@angular/material/dialog';
-import { title } from 'process';
+import { FavoritesServices } from '../favorite-movies.service/favorites';
 
 @Component({
   selector: 'app-movie-card.component',
@@ -21,10 +19,12 @@ export class MovieCardComponent implements OnInit{
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar,
     private router: Router,
+    public favorites: FavoritesServices,
   ) {}
   
   ngOnInit(): void {
-    this.getAllMovies();  }
+    this.getAllMovies();
+    this.favorites.loadFavorites();  }
 
   getAllMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -34,24 +34,18 @@ export class MovieCardComponent implements OnInit{
     });
   }
 
-  addMovieToFavs(movieID: string): void {
-    this.fetchApiData.addMovieToFavs(movieID).subscribe((resp: any) => {
-      console.log(resp);
-     this.snackBar.open('user logged in successfully!', 'OK', {
-        duration: 2000
-     });
-    });
-  }
-
-  removeMovieFromFavs(movieID: string): void {
-    this.fetchApiData.removeMovieFromFavs(movieID).subscribe((resp: any) => {
-      console.log(resp);
-      return resp;
-    });
-  }
-
   // open dialog for the clicked movie — pass the actual movie object as dialog data
   openSingleMovieCardComponent(Title: any): void {
     this.router.navigate(['/movies', Title]);
   }
+
+  isFavorite(movieID: string): boolean {
+  return this.favorites.isFavorite(movieID);
+}
+
+  toggle(movieID: string): void {
+  this.favorites.toggle(movieID);
+}
+
+
 }
