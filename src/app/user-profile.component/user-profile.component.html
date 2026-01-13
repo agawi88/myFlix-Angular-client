@@ -11,15 +11,29 @@
         </mat-card-header>
         <mat-card-content>
             <p><strong>Username:</strong> {{ userData?.Username }}</p>
-                <button mat-button color="warn" (click)="deleteUser()">
+
+                <button mat-button color="primary" (click)="openEditDialog()">
+                    Edit Profile
+                </button>
+                <button mat-button color="warn" (click)="openDeleteDialog(deleteDialog)">
                     Delete Profile
                 </button>
+<!-- TAMPLETE FOR CONFIORMING DELETION OF PROFILE -->
+<ng-template #deleteDialog>
+    <h2 mat-dialog-title>Delete Account</h2>
+    <mat-dialog-content>
+        <p>Are you sure you want to delete your profile? This action <strong>cannot</strong> be undone.</p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button color="warn" (click)="deleteUser()" mat-dialog-close>Delete</button>
+    </mat-dialog-actions>
+</ng-template>
+<!-- END OF TAMPLETE FOR CONFIORMING DELETION OF PROFILE -->
+
             <p><strong>Password:</strong> {{ userData?.Password }}</p>
             <p><strong>Email:</strong> {{ userData?.Email }}</p>
             <p><strong>Birthday:</strong> {{ userData?.DateOfBirth | date }}</p>
-  <!--       <button mat-button color="primary" (click)="openEditUserDialog()">
-            Edit Profile
-        </button>-->
 
         </mat-card-content>
     <mat-card-footer>

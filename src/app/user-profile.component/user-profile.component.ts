@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FavoritesServices } from '../favorite-movies.service/favorites';
 import { SingleMovieCardComponent } from '../single-movie-card.component/single-movie-card.component';
+import { UserFormDialogComponent } from '../user-form-dialog.component/user-form-dialog.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -52,6 +53,17 @@ export class UserProfileComponent implements OnInit {
       });
     });
   }
+
+  openEditDialog(): void {
+  this.dialog.open(UserFormDialogComponent, {
+    width: '600px',
+    data: { userData: this.userData }
+  });
+}
+
+  openDeleteDialog(templateRef: TemplateRef<any>): void {
+  this.dialog.open(templateRef);
+}
 
   deleteUser(): void {
     this.fetchApiData.deleteUserAccount().subscribe((resp) => {
