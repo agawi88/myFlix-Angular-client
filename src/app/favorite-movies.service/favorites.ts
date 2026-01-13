@@ -52,17 +52,6 @@ export class FavoritesServices {
       ? this.remove(movieID)
       : this.add(movieID);
   }
-
-/*     openMovieDialog(movie: any, Title: any): void {
-      this.dialog.open(SingleMovieCardComponent, {
-        data: { movie: movie, Title: Title },
-        width: '400px'
-      });
-    }
-
-        close(): void {
-    this.dialogRef.close(); 
-  }
-*/
+  
 
 }
