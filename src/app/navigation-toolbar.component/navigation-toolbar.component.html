@@ -1,8 +1,14 @@
 <mat-toolbar color="primary" class="toolbar">
-  <span>myFlix</span>
+  
+  <!-- LEFT: title -->
+  <span class="welcome-title">
+    <h1>{{ isLoggedIn() ? 'myFlix' : 'Welcome to myFlix!' }}</h1>
+  </span>
 
   <span class="spacer"></span>
 
+  <!-- RIGHT: authenticated buttons -->
+<ng-container *ngIf="isLoggedIn()">
     <button
     mat-raised-button
     style="margin-left: 10px;"
@@ -14,4 +20,5 @@
   <button mat-button (click)="logout()">
     Logout
   </button>
+</ng-container>
 </mat-toolbar>
