@@ -27,6 +27,7 @@ import { GenreViewComponent } from './genre-view.component/genre-view.component'
 import { NavigationToolbarComponent } from './navigation-toolbar.component/navigation-toolbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SingleMovieCardComponent } from './single-movie-card.component/single-movie-card.component';
+import { UserFormDialogComponent } from './user-form-dialog.component/user-form-dialog.component';
 
 
 ///
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
     GenreViewComponent,
     NavigationToolbarComponent,
     SingleMovieCardComponent,
+    UserFormDialogComponent,
   ],
   imports: [
     CommonModule,
