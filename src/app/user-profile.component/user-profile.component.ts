@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-//import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FavoritesServices } from '../favorite-movies.service/favorites';
+import { SingleMovieCardComponent } from '../single-movie-card.component/single-movie-card.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,7 +16,7 @@ export class UserProfileComponent implements OnInit {
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    //public dialogRef: MatDialogRef<UserProfileComponent>,
+    private dialog: MatDialog,
     public snackBar: MatSnackBar,
     private router: Router,
     public favorites: FavoritesServices,
@@ -52,7 +53,15 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-    goBack(): void {
+    goBackToMovies(): void {
     this.router.navigate(['/movies']);
   }
+
+    openMovieDialog(movie: any): void {
+      this.dialog.open(SingleMovieCardComponent, {
+        data: { movie: movie },
+        width: '600px'
+      });
+    }
+
 }

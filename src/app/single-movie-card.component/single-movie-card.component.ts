@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { DirectorViewComponent } from '../director-view.component/director-view.component';
 import { GenreViewComponent } from '../genre-view.component/genre-view.component';
 import { FavoritesServices } from '../favorite-movies.service/favorites';
+
 
 @Component({
   selector: 'app-single-movie-card.component',
@@ -18,13 +19,21 @@ export class SingleMovieCardComponent implements OnInit {
   movie: any = {};
 
   constructor(
+
+    @Optional() public dialogRef: MatDialogRef<SingleMovieCardComponent>,
+
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog, 
     public snackBar: MatSnackBar,
     private route: ActivatedRoute,
     private router: Router,
     public favorites: FavoritesServices,
-  ) {}
+  ) {
+    // If the dialog injected data includes a movie, use it; otherwise leave existing this.movie
+    this.movie = data?.movie || this.movie;
+  }
 
   ngOnInit(): void {
   const movieTitle = this.route.snapshot.paramMap.get('Title');
@@ -43,8 +52,19 @@ export class SingleMovieCardComponent implements OnInit {
     });
   }
 
-    goBack(): void {
+/*     goBack(): void {
     this.router.navigate(['/movies']);
+  } */
+
+  goBack(): void {
+        if (this.dialogRef) {
+      // Opened as dialog
+      this.dialogRef.close();
+    } else {
+      // Opened via routing
+      //this.location.back();
+      this.router.navigate(['/movies']);
+    }
   }
 
   openDirectorDialog(director: any): void {
@@ -69,6 +89,6 @@ export class SingleMovieCardComponent implements OnInit {
   this.favorites.toggle(movieID);
 }
 
-
-
 }
+
+  

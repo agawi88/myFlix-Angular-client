@@ -1,0 +1,15 @@
+.horizontal-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 0;
+
+    // prevent page scroll
+  max-width: 100%;
+}
+
+.movie-card {
+  flex: 0 0 auto;
+  //width: 220px; // same width as in Movies view
+}
