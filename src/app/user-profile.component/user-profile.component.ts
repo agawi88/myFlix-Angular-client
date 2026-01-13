@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { FavoritesServices } from '../favorite-movies.service/favorites';
 import { SingleMovieCardComponent } from '../single-movie-card.component/single-movie-card.component';
 
@@ -48,6 +48,21 @@ export class UserProfileComponent implements OnInit {
     }, (error) => {
       console.error('getUserDetails error', error);
       this.snackBar.open(error?.message || 'Failed to load profile', 'OK', {
+        duration: 2000
+      });
+    });
+  }
+
+  deleteUser(): void {
+    this.fetchApiData.deleteUserAccount().subscribe((resp) => {
+      console.log('deleteUser response', resp);
+      this.snackBar.open('Profile deleted successfully!', 'OK', {
+        duration: 2000
+      });
+      this.router.navigate(['/']);
+    }, (error) => {
+      console.error('deleteUser error', error);
+      this.snackBar.open(error?.message || 'Failed to delete profile', 'OK', {
         duration: 2000
       });
     });
