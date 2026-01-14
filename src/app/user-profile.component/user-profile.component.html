@@ -11,34 +11,31 @@
         </mat-card-header>
         <mat-card-content>
             <p><strong>Username:</strong> {{ userData?.Username }}</p>
-
-                <button mat-button color="primary" (click)="openEditDialog()">
-                    Edit Profile
-                </button>
-                <button mat-button color="warn" (click)="openDeleteDialog(deleteDialog)">
-                    Delete Profile
-                </button>
+            <p><strong>Password:</strong> {{ userData?.Password }}</p>
+            <p><strong>Email:</strong> {{ userData?.Email }}</p>
+            <p><strong>Birthday:</strong> {{ userData?.DateOfBirth | date }}</p>
+            <br />
+        </mat-card-content>
+        <mat-card-footer>
+        <p>
+            <button mat-button color="primary" (click)="openEditDialog()">
+                Edit Profile
+            </button>
+            <button mat-button color="warn" (click)="openDeleteDialog(deleteDialog)">
+                Delete Profile
+            </button>
 <!-- TAMPLETE FOR CONFIORMING DELETION OF PROFILE -->
 <ng-template #deleteDialog>
     <h2 mat-dialog-title>Delete Account</h2>
     <mat-dialog-content>
         <p>Are you sure you want to delete your profile? This action <strong>cannot</strong> be undone.</p>
     </mat-dialog-content>
-    <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-button color="warn" (click)="deleteUser()" mat-dialog-close>Delete</button>
+    <mat-dialog-actions>
+        <button mat-button color="warn" (click)="deleteUser()" mat-dialog-close class="changeButton">Delete</button>
+        <button mat-button mat-dialog-close class="cancelButton">Cancel</button>    
     </mat-dialog-actions>
 </ng-template>
 <!-- END OF TAMPLETE FOR CONFIORMING DELETION OF PROFILE -->
-
-            <p><strong>Password:</strong> {{ userData?.Password }}</p>
-            <p><strong>Email:</strong> {{ userData?.Email }}</p>
-            <p><strong>Birthday:</strong> {{ userData?.DateOfBirth | date }}</p>
-
-        </mat-card-content>
-    <mat-card-footer>
-        <br />
-        <p>
         <button mat-button class="closeButton" color="accent" (click)="goBackToMovies()">
             Close
         </button>
@@ -51,8 +48,8 @@
     <h2>Favorite Movies</h2>
     <div class="horizontal-scroll" *ngIf="favorites.favoriteMovies.length; else noFavs">
         <mat-card *ngFor="let movie of favorites.favoriteMovies" class="fav-card">
-            <img mat-card-image [src]="movie.ImageURL" [alt]="movie.Title" />
-            <mat-card-title> {{movie.Title}} </mat-card-title>
+            <img mat-card-image [src]="movie.ImageURL" [alt]="movie.Title" class="cardImage"/>
+            <mat-card-title class="cardTitle"> {{movie.Title}} </mat-card-title>
             <mat-card-actions>
                 <button 
                 mat-button 

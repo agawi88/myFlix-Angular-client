@@ -1,3 +1,5 @@
+/* Styles for User Profile Component */
+
 .profile-container {
   /* make the card a positioned ancestor so absolutely positioned
      children (like the close button) are positioned relative to it */
@@ -13,6 +15,27 @@
   padding: 6px 12px;
 }
 
+.cancelButton {
+/*   margin-right: 8px;
+    display: flex;
+  justify-content: flex-end; */
+    position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 6px 12px;
+}
+.changeButton {
+/*     display: flex;
+  justify-content: flex-start;
+    margin-right: 8px; */
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 6px 12px;
+}
+
+/* Styles for Favorite Movie Cards */
+
 .horizontal-scroll {
   display: flex;
   gap: 16px;
@@ -27,6 +50,19 @@
 .fav-card {
   flex: 0 0 auto;
   width: 220px; // same width as in Movies view
+  height: 320px;
+}
+.cardImage {
+    height: 240px;
+    object-fit: scale-down;
+}
+.cardTitle {
+    text-align: start;
+    font-size: 18px;
+    margin-top: 8px;
+    margin-left: 18px;
+    height: 40px;
+    overflow: hidden;
 }
 
 

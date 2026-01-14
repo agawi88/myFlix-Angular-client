@@ -1,9 +1,9 @@
 <!-- src/app/user-login-form/user-login-form.component.html -->
   <mat-card>
-    <mat-card-header>
+    <mat-card-header align="center">
       <mat-card-title>Edit User Data</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content align="center">
       <form>
         <mat-form-field>
           <input
@@ -32,8 +32,17 @@
           mat-raised-button
           (click)="editUser()"
           color="primary"
+          class="changeButton"
         >
           Confirm and Change Data
+        </button>
+        <button
+          mat-raised-button
+          mat-dialog-close
+          color="accent"
+          class="cancelButton"
+        >
+          Cancel
         </button>
     </mat-card-actions>
   </mat-card>

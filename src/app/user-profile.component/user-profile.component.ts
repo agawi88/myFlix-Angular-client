@@ -55,9 +55,16 @@ export class UserProfileComponent implements OnInit {
   }
 
   openEditDialog(): void {
-  this.dialog.open(UserFormDialogComponent, {
-    width: '600px',
+  const dialogRef = this.dialog.open(UserFormDialogComponent, {
+    width: '500px',
     data: { userData: this.userData }
+  });
+
+  dialogRef.afterClosed().subscribe((updatedUser) => {
+    if (updatedUser) {
+      this.userData = updatedUser;
+      this.favoriteMovies = updatedUser.FavoriteMovies || [];
+    }
   });
 }
 

@@ -1,0 +1,19 @@
+.cancelButton {
+    position: absolute;
+  right: 35px;
+  bottom: 16px;
+  padding: 6px 12px;
+}
+.changeButton {
+  position: absolute;
+  left: 35px;
+  bottom: 16px;
+  padding: 6px 12px;
+}
+mat-card-header {
+    align-items: center;
+    padding: 16px 35px 16px 35px;
+}
+mat-card-actions {
+    margin: 0px 35px 0px 35px;
+}

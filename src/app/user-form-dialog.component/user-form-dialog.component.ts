@@ -1,8 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-form-dialog.component',
@@ -10,33 +9,44 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './user-form-dialog.component.html',
   styleUrl: './user-form-dialog.component.scss',
 })
-export class UserFormDialogComponent implements OnInit {
+export class UserFormDialogComponent {
 
-  @Input() userData = { Username: '', Password: '' };
-  
-    constructor(
+  userData: any /* = {
+    Username: this.data.userData.Username,
+    Password: this.data.userData.Password,
+    Email: this.data.userData.Email,
+    DateOfBirth: this.data.userData.DateOfBirth,
+  } */;
+    constructor(  
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<UserFormDialogComponent>,
     public fetchApiData: FetchApiDataService,
-    private dialog: MatDialog,
+    //private dialog: MatDialog,
     public snackBar: MatSnackBar,
 
-  ) {}
-  ngOnInit(): void {
+  ) {
+   // IMPORTANT: clone to avoid mutating parent state
 
-}
+    this.userData = { ...data.userData };
+  }
+
   // This is the function responsible for sending the form inputs to the backend
   editUser(): void {
-      this.fetchApiData.editUserDetails(this.userData).subscribe((response) => {
-    // Logic for a successful user edit goes here! 
-       this.dialog.closeAll(); // This will close the modal on success!
-       console.log(response);
-        localStorage.setItem('user', response.Username);
-       this.snackBar.open('user edited successfully!', 'OK', {
-          duration: 2000
-       });
-      }, (response) => {
-        this.snackBar.open(response, 'OK', {
-          duration: 2000
-        });
+      this.fetchApiData.editUserDetails(this.userData).subscribe({
+        next: (updatedUser) => {
+          localStorage.setItem('user', updatedUser.Username);
+          this.snackBar.open('user edited successfully!', 'OK', {
+            duration: 2000
+          });
+
+          // Close the dialog on success
+          this.dialogRef.close(updatedUser);
+        },
+        error: (err) => {
+          this.snackBar.open(err?.message, 'OK', {
+            duration: 2000
+          });
+        }
       });
     }
 
