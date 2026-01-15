@@ -6,7 +6,13 @@
   justify-content: center;
   text-align: center;
   padding: 24px;
-    border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0,0,0,0.05);
+
+    background: linear-gradient(
+    180deg,
+    #edc8ca 0%,
+    #ffffff 100%
+  );
 }
 
 .title {
@@ -42,8 +48,38 @@
   align-items: center;
   gap: 8px;
   font-size: 0.9rem;
+  flex-wrap: wrap;
   color: #666;
 }
+
+.login span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+
+/* responsive design */
+
+@media (max-width: 600px) {
+  .features {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .brand {
+    font-size: 2rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .login {
+    font-size: 0.8rem;
+    justify-content: center;
+  }
+}
+
 
 
 

@@ -21,16 +21,13 @@ export class WelcomePageComponent implements OnInit {
   }
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
-      width: '280px'
+      width: '300px'
     });
   }
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
-      width: '280px'
+      width: '300px'
     });
   }
-/*   openMoviesDialog(): void {
-    this.router.navigate(['movies']);
-  } */
 
 }
