@@ -10,14 +10,17 @@
   <!-- RIGHT: authenticated buttons -->
 <ng-container *ngIf="isLoggedIn()">
     <button
-    mat-raised-button
-    style="margin-left: 10px;"
-    color="primary"
+    matButton="tonal"    
+    style="margin-right: 10px;"
+    color="accent"
     (click)="openUserProfile()"  >
     My Profile
   </button>
 
-  <button mat-button (click)="logout()">
+  <button 
+  mat-button 
+  style="margin-left: 3px;"
+  (click)="logout()">
     Logout
   </button>
 </ng-container>
