@@ -1,18 +1,34 @@
 <div class="main-page">
+  <h4 class="title">
+    Immerse yourself in a world of movies set in Great Britain!
+  </h4>
+  <div class="features">
+  <span>🎥 Browse movies</span>
+  <span>❤️ Save favorites</span>
+  <span>🔍 Explore details</span>
+</div>
+  <div class="actions">
+    <div class="signin">
     <button
       mat-raised-button
       (click)="openUserRegistrationDialog()"
-      style="margin-right: 10px;"
+      style="margin-right: 20px;"
       color="primary"
     >
       Sign Up
     </button>
-    <button
-      mat-raised-button
+    </div>
+    <div class="login">
+    <span style="margin: 10px; align-self: center;">Already have an account?</span>
+    <br />
+    <p><button
+      mat-stroked-button
       color="primary"
       (click)="openUserLoginDialog()"
       style="margin-right: 10px;"
     >
       Login
-    </button>
+    </button></p>
+    </div>
+    </div>
   </div>

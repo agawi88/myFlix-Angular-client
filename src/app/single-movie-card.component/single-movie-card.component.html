@@ -35,21 +35,22 @@
             <p><strong> Featured: </strong>
             {{ movie.Featured ? 'Yes' : 'No' }}</p>
 
-                <p><span class="label"> Genre:   </span>
-                <button
+            <strong> Genre:   </strong>
+                <a
                 (click)="openGenreDialog(movie.Genre)"
                 mat-button
                 color="primary">  
             {{ movie.Genre?.Name }}
-            </button></p>
-            <p><span class="label"> Director:  </span>
-            <button
+            </a>
+            <br />
+            <strong> Director:  </strong>
+            <a
                 mat-button
                 color="primary"
                 (click)="openDirectorDialog(movie.Director)"
             >
                   {{ movie.Director?.Name }}
-            </button></p>
+            </a>
             </div>
         </mat-card-content>
         <mat-card-footer>
