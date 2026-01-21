@@ -31,7 +31,7 @@ export class SingleMovieCardComponent implements OnInit {
     private router: Router,
     public favorites: FavoritesServices,
   ) {
-    // If the dialog injected data includes a movie, use it; otherwise leave existing this.movie
+    /* If the dialog injected data includes a movie, use it; otherwise leave existing this.movie */
     this.movie = data?.movie || this.movie;
   }
 
@@ -52,17 +52,12 @@ export class SingleMovieCardComponent implements OnInit {
     });
   }
 
-/*     goBack(): void {
-    this.router.navigate(['/movies']);
-  } */
-
   goBack(): void {
         if (this.dialogRef) {
       // Opened as dialog
       this.dialogRef.close();
     } else {
       // Opened via routing
-      //this.location.back();
       this.router.navigate(['/movies']);
     }
   }

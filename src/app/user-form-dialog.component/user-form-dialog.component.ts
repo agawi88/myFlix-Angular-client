@@ -11,36 +11,28 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class UserFormDialogComponent {
 
-  userData: any /* = {
-    Username: this.data.userData.Username,
-    Password: this.data.userData.Password,
-    Email: this.data.userData.Email,
-    DateOfBirth: this.data.userData.DateOfBirth,
-  } */;
+  userData: any
+
     constructor(  
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<UserFormDialogComponent>,
     public fetchApiData: FetchApiDataService,
-    //private dialog: MatDialog,
     public snackBar: MatSnackBar,
 
   ) {
-   // IMPORTANT: clone to avoid mutating parent state
-
-    this.userData = { ...data.userData };
+    this.userData = { ...data.userData };  // IMPORTANT: clone to avoid mutating parent state
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  /* This is the function responsible for sending the form inputs to the backend */
+
   editUser(): void {
       this.fetchApiData.editUserDetails(this.userData).subscribe({
         next: (updatedUser) => {
           localStorage.setItem('user', updatedUser.Username);
-          this.snackBar.open('user edited successfully!', 'OK', {
+          this.snackBar.open('User edited successfully!', 'OK', {
             duration: 2000
           });
-
-          // Close the dialog on success
-          this.dialogRef.close(updatedUser);
+          this.dialogRef.close(updatedUser);     // Close the dialog on success
         },
         error: (err) => {
           this.snackBar.open(err?.message, 'OK', {

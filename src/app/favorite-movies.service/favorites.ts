@@ -1,7 +1,5 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
-import { SingleMovieCardComponent } from '../single-movie-card.component/single-movie-card.component';
-//import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +9,7 @@ export class FavoritesServices {
   favoriteMovies: any[] = [];
 
   constructor(
-     //   @Inject(MAT_DIALOG_DATA) public data: { Title: any, movie: any},
         private fetchApiData: FetchApiDataService,
-/*         private dialog: SingleMovieCardComponent,
-        private dialogRef: MatDialogRef<SingleMovieCardComponent>, */
   ) {}
 
   loadFavorites(): void {

@@ -1,5 +1,4 @@
 import { Component, Inject } from '@angular/core';
-import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 

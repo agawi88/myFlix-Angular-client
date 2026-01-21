@@ -11,15 +11,11 @@
   position: absolute;
   right: 16px;
   bottom: 16px;
-  /* keep visual spacing and touch target */
-  padding: 6px 12px;
+  padding: 6px 12px;  // keep visual spacing and touch target
 }
 
 .cancelButton {
-/*   margin-right: 8px;
-    display: flex;
-  justify-content: flex-end; */
-    position: absolute;
+  position: absolute;
   right: 16px;
   bottom: 16px;
   padding: 6px 12px;
@@ -40,8 +36,7 @@
   overflow-y: hidden;
   padding: 8px 0;
 
-    // prevent page scroll
-  max-width: 100%;
+  max-width: 100%;      // prevent page scroll
 }
 
 .fav-card {
@@ -65,8 +60,8 @@
 
 
 /* Small screens: reduce offset so button remains visible */
-/* @media (max-width: 480px) {
+@media (max-width: 480px) {
   .closeButton {
     right: 8px;
     bottom: 8px;
-  }} */
+  }}

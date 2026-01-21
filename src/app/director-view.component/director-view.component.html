@@ -10,9 +10,11 @@
             <p><strong>Born:</strong> {{ data.director.DateOfBirth | date }}</p>
             <p *ngIf="data.director.DateOfDeath"><strong>Died:</strong> {{ data.director.DateOfDeath  | date }}</p>
         </mat-card-content>
-        <mat-card-footer>
+<!-- Future improvement
+                 <mat-card-footer>
             <p>Movies by this director will be listed here.</p>
-        </mat-card-footer>
+        </mat-card-footer> 
+-->
         <mat-card-actions>
             <button mat-button color="primary" (click)="dialogRef.close()">Close</button>
         </mat-card-actions>

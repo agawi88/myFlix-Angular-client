@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  // Update this to match your backend API base URL, include trailing slash if you prefer
+  /* Backend API base URL */
   apiUrl: 'http://localhost:8080/'
 };

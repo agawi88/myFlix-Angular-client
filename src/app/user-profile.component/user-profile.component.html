@@ -24,6 +24,7 @@
             <button mat-button color="warn" (click)="openDeleteDialog(deleteDialog)">
                 Delete Profile
             </button>
+
 <!-- TAMPLETE FOR CONFIORMING DELETION OF PROFILE -->
 <ng-template #deleteDialog>
     <h2 mat-dialog-title>Delete Account</h2>
@@ -36,6 +37,8 @@
     </mat-dialog-actions>
 </ng-template>
 <!-- END OF TAMPLETE FOR CONFIORMING DELETION OF PROFILE -->
+
+
         <button mat-button class="closeButton" color="accent" (click)="goBackToMovies()">
             Close
         </button>
