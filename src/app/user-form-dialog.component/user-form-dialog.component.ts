@@ -1,7 +1,24 @@
+/**
+ * @file user-form-dialog.component.ts
+ *
+ * Dialog component responsible for updating an existing user's data.
+ * Collects user's new credentials and submits them to the backend
+ * via the FetchApiDataService.
+ *
+ * @module UserFormDialogComponent
+ */
+
 import { Component, Inject } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
+/**
+ * User form dialog component.
+ *
+ * Displays a form that allows existing users to update their data
+ * and handles submission and feedback.
+ */
 
 @Component({
   selector: 'app-user-form-dialog.component',
@@ -11,7 +28,23 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class UserFormDialogComponent {
 
+/**
+   * Local copy of user data used inside the dialog.
+   *
+   * Cloned from injected dialog data to prevent
+   * unintended mutation of parent component state.
+   */
+
   userData: any
+
+/**
+ * Creates an instance of UserFormDialogComponent.
+ *
+ * @param data Data passed into the dialog from the parent component
+ * @param dialogRef Reference to the active dialog instance
+ * @param fetchApiData Service for API communication
+ * @param snackBar Angular Material snackbar service
+ */
 
     constructor(  
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -20,10 +53,15 @@ export class UserFormDialogComponent {
     public snackBar: MatSnackBar,
 
   ) {
-    this.userData = { ...data.userData };  // IMPORTANT: clone to avoid mutating parent state
+    this.userData = { ...data.userData };
   }
 
-  /* This is the function responsible for sending the form inputs to the backend */
+  /**
+   * Submits the edited user data form to the backend.
+   *
+   * On success, the dialog is closed, user's data displayed in user's profile are updated and a confirmation
+   * message is displayed to the user.
+   */
 
   editUser(): void {
       this.fetchApiData.editUserDetails(this.userData).subscribe({
@@ -32,7 +70,7 @@ export class UserFormDialogComponent {
           this.snackBar.open('User edited successfully!', 'OK', {
             duration: 2000
           });
-          this.dialogRef.close(updatedUser);     // Close the dialog on success
+          this.dialogRef.close(updatedUser);  
         },
         error: (err) => {
           this.snackBar.open(err?.message, 'OK', {

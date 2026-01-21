@@ -1,19 +1,32 @@
+/**
+ * @file app.module.ts
+ *
+ * Root Angular module of the myFlix application.
+ * Responsible for bootstrapping the app and
+ * registering core components, routes, and providers.
+ *
+ * @module AppModule
+ */
+
+
 import { NgModule } from '@angular/core';
 
-/* NgModule declarations */
+/* Component declarations */
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MovieCardComponent } from './movie-card.component/movie-card.component';
 import { WelcomePageComponent } from './welcome-page.component/welcome-page.component';
 import { UserProfileComponent } from './user-profile.component/user-profile.component';
-import { FavoritesServices } from './favorite-movies.service/favorites';
 import { DirectorViewComponent } from './director-view.component/director-view.component';
 import { GenreViewComponent } from './genre-view.component/genre-view.component';
 import { NavigationToolbarComponent } from './navigation-toolbar.component/navigation-toolbar.component';
 import { SingleMovieCardComponent } from './single-movie-card.component/single-movie-card.component';
 import { UserFormDialogComponent } from './user-form-dialog.component/user-form-dialog.component';
 
-/* NgModule imports */
+/* Services */
+import { FavoritesServices } from './favorite-movies.service/favorites';
+
+/* Angular and Material Modules */
 import { CommonModule, NgIf } from '@angular/common';
 import { BrowserModule} from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -41,7 +54,13 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
-///
+/**
+ * Root application module.
+ *
+ * Defines global declarations, imports, providers,
+ * and the application bootstrap component.
+ */
+
 @NgModule({
   declarations: [
     AppComponent,
