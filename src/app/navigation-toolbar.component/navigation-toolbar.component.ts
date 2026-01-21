@@ -4,7 +4,6 @@
  * This component handles navigation actions, authentication-aware
  * UI behavior, and user session management.
  *
- * @module NavigationToolbarComponent
  */
 
 import { Component } from '@angular/core';

@@ -2,9 +2,7 @@
  *
  * Component responsible for displaying basic information
  * of all movies. Rendered as a routed view.
- * 
  *
- * @module MovieCardComponent
  */
 
 import { Component, OnInit } from '@angular/core';

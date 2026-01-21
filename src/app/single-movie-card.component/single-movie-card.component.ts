@@ -4,7 +4,6 @@
  * about a single movie. It can be rendered either as a
  * routed view or inside an Angular Material dialog.
  *
- * @module SingleMovieCardComponent
  */
 
 import { Component, OnInit, Inject, Optional } from '@angular/core';

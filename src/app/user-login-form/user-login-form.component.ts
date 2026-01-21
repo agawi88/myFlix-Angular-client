@@ -4,7 +4,6 @@
  * Collects user credentials and submits them to the backend for authentication
  * via the FetchApiDataService and navigation via routing.
  *
- * @module UserLoginFormComponent
  */
 
 import { Component, OnInit, Input } from '@angular/core';

@@ -4,7 +4,6 @@
  * Collects user's new credentials and submits them to the backend
  * via the FetchApiDataService.
  *
- * @module UserFormDialogComponent
  */
 
 import { Component, Inject } from '@angular/core';

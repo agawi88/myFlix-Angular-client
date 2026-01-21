@@ -1,10 +1,8 @@
 /**
- * @file welcome-page.component.ts
  *
  * This is the first page users view upon opening my app and the one shown after a user loggs out. 
  * Page visible to both registered and un-registered users.
  * * This component uses dialogs, authentication-aware
- * @module WelcomePageComponent
  */
 
 import { Component, OnInit } from '@angular/core';

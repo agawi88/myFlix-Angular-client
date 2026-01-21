@@ -1,11 +1,9 @@
 /**
- * @file user-registration-form.component.ts
  *
  * Dialog component responsible for user registration.
  * Collects user credentials and submits them to the backend
  * via the FetchApiDataService.
  *
- * @module UserRegistrationFormComponent
  */
 
 import { Component, OnInit, Input } from '@angular/core';

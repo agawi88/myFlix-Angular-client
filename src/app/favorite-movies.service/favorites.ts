@@ -4,7 +4,6 @@
  * Maintains a local cache of favorite movies and synchronizes
  * changes with the backend API.
  *
- * @module FavoritesServices
  */
 
 import { Injectable } from '@angular/core';

@@ -1,11 +1,9 @@
 /**
- * @file app.component.ts
  *
  * Root application component.
  * Acts as the main layout shell and entry point
  * for rendering routed views.
  *
- * @module AppComponent
  */
 
 import { Component } from '@angular/core';

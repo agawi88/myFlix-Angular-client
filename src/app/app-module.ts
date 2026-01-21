@@ -1,11 +1,9 @@
 /**
- * @file app.module.ts
  *
  * Root Angular module of the myFlix application.
  * Responsible for bootstrapping the app and
  * registering core components, routes, and providers.
  *
- * @module AppModule
  */
 
 

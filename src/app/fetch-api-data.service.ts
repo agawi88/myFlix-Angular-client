@@ -1,11 +1,9 @@
 /**
- * @file fetch-api-data.service.ts
  *
  * Provides centralized communication with the myFlix REST API.
  * This service handles authentication, user management,
  * movie data retrieval, and favorite movie operations.
  *
- * @module FetchApiDataService
  */
 
 
