@@ -1,5 +1,4 @@
 /**
- * @file genre-view.component.ts
  *
  * Dialog component responsible for updating an existing user's data.
  * Collects user's new credentials and submits them to the backend

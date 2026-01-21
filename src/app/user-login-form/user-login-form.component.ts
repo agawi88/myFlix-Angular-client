@@ -1,5 +1,4 @@
 /**
- * @file user-login-form.component.ts
  *
  * Dialog component responsible for user login.
  * Collects user credentials and submits them to the backend for authentication

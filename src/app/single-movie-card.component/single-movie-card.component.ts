@@ -1,5 +1,4 @@
 /**
- * @file single-movie-card.component.ts
  *
  * Component responsible for displaying detailed information
  * about a single movie. It can be rendered either as a

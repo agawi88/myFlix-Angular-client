@@ -1,5 +1,4 @@
 /**
- * @file movie-card.component.ts
  *
  * Component responsible for displaying basic information
  * of all movies. Rendered as a routed view.

@@ -1,5 +1,4 @@
 /**
- * @file favorites.service.ts
  *
  * Service responsible for managing the user's favorite movies.
  * Maintains a local cache of favorite movies and synchronizes

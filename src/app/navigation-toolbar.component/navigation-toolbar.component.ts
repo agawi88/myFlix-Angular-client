@@ -1,5 +1,4 @@
 /**
- * @file navigation-toolbar.component.ts
  *
  * Provides the navigation toolbar component for the application.
  * This component handles navigation actions, authentication-aware

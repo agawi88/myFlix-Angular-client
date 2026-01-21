@@ -1,0 +1,14 @@
+{
+  "entryPoints": ["src"],
+  "entryPointStrategy": "expand",
+  "exclude": [
+    "**/*.spec.ts",
+    "**/node_modules/**",
+    "**/*.module.ts",
+    "**/*.routing.ts"
+  ],
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "hideGenerator": true
+}
