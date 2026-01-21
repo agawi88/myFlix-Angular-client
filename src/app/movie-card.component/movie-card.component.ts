@@ -77,7 +77,7 @@ export class MovieCardComponent implements OnInit{
 /**
  * Navigates to the detailed view of a selected movie.
  *
- * @param Title Title of the selected movie
+ * @param Title title Title of the selected movie
  */
 
 openSingleMovieCardComponent(Title: any): void {
@@ -87,7 +87,7 @@ openSingleMovieCardComponent(Title: any): void {
   /**
    * Checks whether a movie is marked as a favorite.
    *
-   * @param movieID Movie identifier
+   * @param movieID movieId Movie identifier
    * @returns `true` if the movie is a favorite
    */
 
@@ -98,7 +98,7 @@ openSingleMovieCardComponent(Title: any): void {
   /**
    * Toggles the favorite status of a movie.
    *
-   * @param movieID Movie identifier
+   * @param movieID movieId Movie identifier
    */
 
   toggle(movieID: string): void {

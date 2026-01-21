@@ -91,7 +91,7 @@ export class FetchApiDataService {
   /**
    * Retrieves a single movie by title.
    *
-   * @param title Movie title
+   * @param Title title Movie title
    * @returns Observable containing movie details
    */
   
@@ -219,7 +219,7 @@ export class FetchApiDataService {
   /**
    * Adds a movie to the user's favorites.
    *
-   * @param movieId Movie ID
+   * @param MovieID Movie ID
    * @returns Observable containing updated user data
    */
   
@@ -240,7 +240,7 @@ export class FetchApiDataService {
  /**
    * Removes a movie from the user's favorites.
    *
-   * @param movieId Movie ID
+   * @param MovieID movieID Movie ID
    * @returns Observable containing updated user data
    */
   

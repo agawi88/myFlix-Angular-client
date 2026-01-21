@@ -86,11 +86,11 @@ export class SingleMovieCardComponent implements OnInit {
   /**
    * Retrieves movie details by title.
    *
-   * @param movieTitle Title of the movie to retrieve
+   * @param Title Movie title Title of the movie to retrieve
    */
 
-  getSingleMovie(movieTitle: string): any {
-    this.fetchApiData.getSingleMovie(movieTitle).subscribe((resp: any) => {
+  getSingleMovie(Title: string): any {
+    this.fetchApiData.getSingleMovie(Title).subscribe((resp: any) => {
       this.movie = resp;
       console.log(this.movie);
       return this.movie;
@@ -143,7 +143,7 @@ export class SingleMovieCardComponent implements OnInit {
   /**
    * Checks whether a movie is marked as a favorite.
    *
-   * @param movieID Movie identifier
+   * @param movieID movieId  Movie identifier
    * @returns `true` if the movie is a favorite
    */
 
